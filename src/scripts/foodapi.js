@@ -59,27 +59,27 @@ const htmlFoods = () => {
 //calls HTML foods to add to add the information from the API to the DOM. Depreciated.
 // htmlFoods()
 
-fetch("http://localhost:8088/food")
-    getFoods().then(myParsedFoods => {
-        myParsedFoods.forEach(food => {
-            console.log(food) // Should have a `barcode` property
 
-            // Now fetch the food from the Food API
-            fetch(`https://world.openfoodfacts.org/api/v0/product/${food.barcode}.json`)
-                .then(response => response.json())
-                .then(productInfo => {
-                    food.ingredients = productInfo.product.ingredients_text_en;
-                    food.country = productInfo.product.countries;
-                    food.calories = productInfo.product.nutriments.energy;
-                    food.fat = productInfo.product.nutriments.fat_value;
-                    food.sugar = productInfo.product.nutriments.sugars_100g;
+getFoods().then(myParsedFoods => {
+    myParsedFoods.forEach(food => {
+        console.log(food) // Should have a `barcode` property
+
+        // Now fetch the food from the Food API
+        fetch(`https://world.openfoodfacts.org/api/v0/product/${food.barcode}.json`)
+            .then(response => response.json())
+            .then(productInfo => {
+                food.ingredients = productInfo.product.ingredients_text_en;
+                food.country = productInfo.product.countries;
+                food.calories = productInfo.product.nutriments.energy;
+                food.fat = productInfo.product.nutriments.fat_value;
+                food.sugar = productInfo.product.nutriments.sugars_100g;
 
 
-                    // Produce HTML representation
-                    const foodAsHTML = htmlString(food)
+                // Produce HTML representation
+                const foodAsHTML = htmlString(food)
 
-                    // Add representaiton to DOM
-                    postToDom(foodAsHTML)
-                })
-        })
+                // Add representaiton to DOM
+                postToDom(foodAsHTML)
+            })
     })
+})
