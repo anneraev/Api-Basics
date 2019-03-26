@@ -1,6 +1,5 @@
 {
-  "food": [
-    {
+  "food": [{
       "id": 1,
       "name": "Linguine",
       "category": "pasta",

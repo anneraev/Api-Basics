@@ -10,7 +10,7 @@
     flex-flow: column wrap;
     justify-content: space-evenly;
     align-content: flex-start;
-    min-width: 220px; 
+    min-width: 220px;
 }
 
 .entry {
