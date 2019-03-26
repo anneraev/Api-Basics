@@ -11,6 +11,7 @@
     justify-content: space-evenly;
     align-content: flex-start;
     min-width: 220px;
+    max-width: 20%;
 }
 
 .entry {

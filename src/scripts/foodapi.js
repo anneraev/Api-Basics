@@ -47,7 +47,7 @@ const htmlString = (food) => {
 
 //Calls a function that fetchess the data, then passes each parsed entry to another function that adds HTML, finally passing the HTML to a function that posts it to the DOM. Depreciated.
 const htmlFoods = () => {
-    listHTML.innerHTML = '';
+    listHTML.innerHTML = "";
     getFoods().then(parsedFoods => {
         parsedFoods.forEach(food => {
             const foodHTML = htmlString(food);
